@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PWANI Pool Restaurant — Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #03918a;
+      --brand-ink: #015a56;
+      --bg: #f8f8f8;
+      --text: #1a1a1a;
+      --muted: #6b7280;
+      --card: #ffffff;
+      --card-border: #e5e7eb;
+      --chip-bg: #eef7f6;
+      --chip-border: #bfe6e1;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --container: 1120px;
+      --section-padding: 2rem;
+      --menu-item-spacing: 1.5rem;
+    }
+    * { 
+      box-sizing: border-box; 
+      margin: 0;
+      padding: 0;
+    }
+    html { 
+      scroll-behavior: smooth; 
+      font-size: 16px;
+    }
+    body {
+      font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--brand);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    header .logo { 
+      height: 2.5rem; 
+      width: auto;
+    }
+    .hero {
+      background: radial-gradient(80% 120% at 50% 0%, #06a39b 0%, var(--brand) 55%, #007a74 100%);
+      color: white;
+      padding: 4rem 1rem 2rem;
+      text-align: center;
+    }
+    .hero .brandmark { 
+      height: 5rem; 
+      width: auto; 
+      filter: drop-shadow(0 8px 18px rgba(0,0,0,0.25)); 
+    }
+    .hero h1 { 
+      margin: 1.5rem 0 0.5rem; 
+      font-size: 2rem; 
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 0.5px; 
+    }
+    .hero p { 
+      margin: 0; 
+      color: #e6fffb; 
+      font-weight: 300;
+      font-size: 1.1rem;
+    }
+    .hero .cta { 
+      display: inline-block; 
+      margin-top: 1.5rem; 
+      padding: 0.75rem 1.5rem; 
+      border-radius: 999px; 
+      background: white; 
+      color: var(--brand); 
+      text-decoration: none; 
+      font-weight: 600; 
+      box-shadow: var(--shadow);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .hero .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .wrap { 
+      max-width: var(--container); 
+      margin: 0 auto; 
+      padding: 1.5rem 1rem 4rem; 
+    }
+    .card { 
+      background: var(--card); 
+      border: 1px solid var(--card-border); 
+      border-radius: var(--radius); 
+      box-shadow: var(--shadow); 
+      overflow: hidden;
+    }
+    .section { 
+      padding: var(--section-padding); 
+      margin-top: 1.5rem; 
+    }
+    h2.section-title { 
+      font-size: 1.5rem; 
+      margin: 0 0 1.5rem; 
+      color: var(--brand-ink); 
+      text-align: center; 
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .toc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin: 1rem 0;
+    }
+    .toc-pill {
+      display: block;
+      text-decoration: none;
+      background: #f6fffd;
+      border: 1px dashed #c7e8e3;
+      color: var(--brand-ink);
+      font-weight: 500;
+      padding: 0.75rem;
+      border-radius: 999px;
+      text-align: center;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+    }
+    .toc-pill:hover { 
+      background: #e0f2f1;
+      transform: translateY(-2px);
+    }
+    .toc-pill:active { 
+      transform: scale(0.98); 
+    }
+    .legend { 
+      display: flex; 
+      flex-wrap: wrap; 
+      gap: 0.5rem; 
+      justify-content: center; 
+      margin-bottom: 1.5rem; 
+    }
+    .chip { 
+      display: inline-block; 
+      padding: 0.25rem 0.75rem; 
+      border: 1px solid var(--chip-border); 
+      background: var(--chip-bg); 
+      border-radius: 999px; 
+      font-size: 0.75rem; 
+      margin-right: 0.25rem; 
+      font-weight: 500;
+    }
+    .menu-block { 
+      padding: 0.5rem 0; 
+    }
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: var(--menu-item-spacing);
+      padding-bottom: var(--menu-item-spacing);
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .menu-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .menu-item-content {
+      flex: 1;
+    }
+    .menu-item-title {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+      color: var(--brand-ink);
+    }
+    .menu-item-description {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+    .menu-item-price {
+      font-weight: 600;
+      color: var(--brand-ink);
+      margin-left: 1rem;
+      white-space: nowrap;
+    }
+    .allergens {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--card-border), transparent);
+      margin: 2rem 0;
+    }
+    .subsection-title {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--brand-ink);
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+    }
+    @media (min-width: 768px) { 
+      .section { 
+        padding: 2.5rem; 
+      }
+      .hero h1 { 
+        font-size: 2.5rem; 
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      header .logo { 
+        height: 3rem; 
+      }
+      .hero .brandmark { 
+        height: 5.5rem; 
+      }
+    }
+    @media (min-width: 1024px) {
+      .menu-columns { 
+        column-count: 2; 
+        column-gap: 3rem; 
+      }
+      .menu-columns .menu-item { 
+        break-inside: avoid; 
+      }
+    }
+    footer { 
+      padding: 1.5rem; 
+      border-top: 1px solid #e5e7eb; 
+      text-align: center;
+    }
+    .review-icons { 
+      display: flex; 
+      gap: 1.5rem; 
+      justify-content: center; 
+      align-items: center; 
+    }
+    .review-icons img { 
+      height: 2.25rem; 
+      width: auto; 
+      transition: transform 0.2s;
+    }
+    .review-icons img:hover {
+      transform: scale(1.05);
+    }
+    .note {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-top: 1.5rem;
+      text-align: center;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://github.com/isaacwebservice-beep/FAIRVIEW/raw/main/pwani.png" alt="PWANI logo" class="logo" loading="eager" decoding="async">
+  </header>
+
+  <section class="hero">
+    <img src="https://github.com/isaacwebservice-beep/FAIRVIEW/raw/main/pwani.png" alt="PWANI Pool Restaurant logo" class="brandmark" loading="eager" decoding="async">
+    <h1>Fairview Hotel, Nairobi</h1>
+    <p>PWANI Pool Restaurant — Online Menu</p>
+    <a href="#toc" class="cta">View Our Menu</a>
+  </section>
+
+  <main class="wrap">
+    <section id="toc" class="section card" aria-labelledby="toc-title">
+      <h2 id="toc-title" class="section-title">Menu Categories</h2>
+      <nav class="toc-grid">
+        <a href="#starters" class="toc-pill">Starters & Small Plates</a>
+        <a href="#grill" class="toc-pill">From The Josper Grill</a>
+        <a href="#ocean-fire" class="toc-pill">Ocean & Fire</a>
+        <a href="#sides" class="toc-pill">Sides</a>
+        <a href="#sauces" class="toc-pill">House Sauces</a>
+        <a href="#desserts" class="toc-pill">Desserts</a>
+        <a href="#beverages" class="toc-pill">Beverages</a>
+        <a href="#wines" class="toc-pill">Wine List</a>
+      </nav>
+    </section>
+
+    <section id="restaurant-menu" class="section card" aria-labelledby="restaurant-menu-title">
+      <h2 id="restaurant-menu-title" class="section-title">Restaurant Menu</h2>
+      <div class="legend" aria-label="Allergen Key">
+        <span class="chip">Dairy</span><span class="chip">Gluten</span><span class="chip">Eggs</span><span class="chip">Fish</span><span class="chip">Shellfish</span><span class="chip">Pork</span><span class="chip">Mustard</span><span class="chip">Wine</span><span class="chip">Milk</span>
+      </div>
+      
+      <div class="menu-block menu-columns">
+        <!-- Starters -->
+        <div id="starters">
+          <h3 class="subsection-title">Starters & Small Plates</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">GARLIC LABNEH (V)</div>
+              <div class="menu-item-description">Salted labneh | roasted garlic | cherry tomato | oregano | olive oil | lavash bread | balsamic reduction | micro herbs</div>
+              <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 950</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">TOMATO & BURRATA SALAD (V)</div>
+              <div class="menu-item-description">Agrodolce | pickled raspberries | basil | toasted pumpkin seeds | Rocket | herb oil | baked beets</div>
+              <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 1,900</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">BAKED CAMEMBERT (V)</div>
+              <div class="menu-item-description">Honey | thyme | chilli flakes | roasted grapes | nuts | lavash</div>
+              <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Nuts</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 2,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">POTATO CROQUETTES (V)</div>
+              <div class="menu-item-description">Potato | crispy fried | saffron aioli</div>
+              <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Eggs</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 1,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">CHICKEN CROQUETTES</div>
+              <div class="menu-item-description">Chicken flakes | potato | crispy fried | saffron aioli</div>
+              <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Eggs</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">SALT & PEPPER CALAMARI (S)</div>
+              <div class="menu-item-description">Grilled lemon | roasted garlic aioli | jalapeño salsa</div>
+              <div class="allergens">Allergens: <span class="chip">Fish</span>, <span class="chip">Gluten</span>, <span class="chip">Eggs</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 2,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">LAMB KOFTA</div>
+              <div class="menu-item-description">Maria bread | bewaz salad | tahini sauce | grilled tomato</div>
+              <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 2,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">BONE MARROW</div>
+              <div class="menu-item-description">Roasted bone marrow | spicy garlic butter | toasted bread | tomato salad</div>
+              <div class="allergens">Allergens: <span class="chip">Milk</span>, <span class="chip">Gluten</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 1,200</div>
+          </div>
+          
+          <div class="note">Perfect for sharing or tasting a little of everything. Please allow 15-20 minutes preparation time.</div>
+        </div>
+        
+        <!-- From The Josper Grill -->
+        <div id="grill">
+          <h3 class="subsection-title">From The Josper Grill</h3>
+          <div class="menu-item-description" style="margin-bottom: 1.5rem;">All our prime cuts are aged 21-28 days. All grills come with your choice of two sides and one house-made sauce.</div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Rump Steak (350g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 4,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Beef Filet Mignon (300g) (unaged)</div>
+            </div>
+            <div class="menu-item-price">Ksh 4,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Rib-Eye Steak (350g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 4,300</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">T-Bone Steak (450g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 5,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sirloin Steak (300g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 4,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sirloin Steak (500g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 5,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Tomahawk Steak (450g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 5,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Tomahawk Steak (600g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 6,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Lamb Chops (350g)</div>
+            </div>
+            <div class="menu-item-price">Ksh 4,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">KUKU CHOMA</div>
+              <div class="menu-item-description">½ grilled capon | lemon-mustard-honey-yogurt marinade</div>
+              <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Mustard</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 3,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">GRILLED PORK RIBS (P) (300g)</div>
+              <div class="menu-item-description">Slow cooked ribs | honey glazed</div>
+              <div class="allergens">Allergens: <span class="chip">Pork</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 3,800</div>
+          </div>
+        </div>
+        
+        <!-- Ocean & Fire -->
+        <div id="ocean-fire">
+          <h3 class="subsection-title">Ocean & Fire</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">RED SNAPPER FILLET (S) (250g)</div>
+              <div class="menu-item-description">Pan-seared snapper | garlic herb butter</div>
+              <div class="allergens">Allergens: <span class="chip">Fish</span>, <span class="chip">Dairy</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 3,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">SAMAKI WA KUPAKA (S) (250g)</div>
+              <div class="menu-item-description">Grilled red snapper | creamy coconut-lime sauce</div>
+              <div class="allergens">Allergens: <span class="chip">Fish</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 3,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">NORWEGIAN SALMON (S) (220g)</div>
+              <div class="menu-item-description">Pan-seared salmon | garlic herb butter</div>
+              <div class="allergens">Allergens: <span class="chip">Fish</span>, <span class="chip">Dairy</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 5,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">GRILLED JUMBO PRAWNS (S) (300g)</div>
+              <div class="menu-item-description">Wood-fired, lightly seasoned</div>
+              <div class="allergens">Allergens: <span class="chip">Shellfish</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 5,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">FRENCH MUSSELS (S)</div>
+              <div class="menu-item-description">Cream | white wine | onion | garlic | green chili | parsley | French baguette</div>
+              <div class="allergens">Allergens: <span class="chip">Shellfish</span>, <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Wine</span></div>
+            </div>
+            <div class="menu-item-price">Ksh 2,800</div>
+          </div>
+        </div>
+        
+        <!-- Sides -->
+        <div id="sides">
+          <h3 class="subsection-title">Sides</h3>
+          <div class="menu-item-description" style="margin-bottom: 1.5rem;">CHOOSE TWO SIDES AND ONE HOUSE SAUCE WITH EVERY GRILL MAIN DISH OR ADD ANY EXTRAS @ KSH500</div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-description">Mashed potato | fries | garlic roast potatoes | white rice | stir-fried vegetable rice | steamed vegetables | green salad | creamed spinach or garlic bread</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- House Sauces -->
+        <div id="sauces">
+          <h3 class="subsection-title">House Sauces</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-description">Red wine jus | Lamb jus | Lemon-butter sauce | Garlic-butter sauce | Mushroom sauce | Diane sauce | Peppercorn sauce</div>
+            </div>
+          </div>
+          
+          <div class="note">Please allow 25-30 minutes preparation time for the above dishes</div>
+        </div>
+        
+        <!-- Desserts -->
+        <div id="desserts">
+          <h3 class="subsection-title">Desserts</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-description">Please enquire with your server on today's offerings.</div>
+            </div>
+          </div>
+          
+          <div class="note" style="margin-top: 2rem;">
+            (P) Pork items &nbsp;&nbsp; (V) Vegeterian item &nbsp;&nbsp; (S) Sea food<br>
+            Please let us know about your Allergies, Special Dietary Needs or Restrictions
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beverage-wine" class="section card" aria-labelledby="beverage-wine-title">
+      <h2 id="beverage-wine-title" class="section-title">Beverage & Wine List</h2>
+      <div class="menu-block menu-columns">
+        <!-- Beverages -->
+        <div id="beverages">
+          <h3 class="subsection-title">Soft Drinks</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Fresh Juices (500ml)</div>
+              <div class="menu-item-description">Passion / Mango / Cocktail</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Freshly Squeezed (300ml)</div>
+              <div class="menu-item-description">Orange / Pineapple / Watermelon / Carrot</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">All Sodas</div>
+            </div>
+            <div class="menu-item-price">250</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Diet Coke</div>
+            </div>
+            <div class="menu-item-price">300</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Ginger Ale</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Mineral Water (500ml)</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Mineral Water (750ml)</div>
+            </div>
+            <div class="menu-item-price">550</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sparkling Mineral (500ml)</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sparkling Mineral (750ml)</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">San Pellegrino Sparkling (750ml)</div>
+            </div>
+            <div class="menu-item-price">1,100</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Red Bull</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Fresh Brew</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">House Coffee</div>
+              <div class="menu-item-description">Single / Double</div>
+            </div>
+            <div class="menu-item-price">500 / 700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Iced House Coffee</div>
+              <div class="menu-item-description">Single / Double</div>
+            </div>
+            <div class="menu-item-price">500 / 700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Americano</div>
+              <div class="menu-item-description">Single / Double</div>
+            </div>
+            <div class="menu-item-price">500 / 600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Espresso</div>
+              <div class="menu-item-description">Single / Double</div>
+            </div>
+            <div class="menu-item-price">350 / 450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Cappuccino</div>
+            </div>
+            <div class="menu-item-price">700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Iced Cappuccino</div>
+            </div>
+            <div class="menu-item-price">700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Café Latte</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Iced Latte</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Café Macchiato</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Café Mocha</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Iced Café Mocha</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Kenyan Tea Pot / Masala</div>
+            </div>
+            <div class="menu-item-price">700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Hot Chocolate</div>
+            </div>
+            <div class="menu-item-price">700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Hot Milk</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Herbal Tea</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Iced Tea</div>
+            </div>
+            <div class="menu-item-price">400</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Dawa Concoction</div>
+              <div class="menu-item-description">ginger/lemon/honey</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">House Cocktails</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Dawa Vodka</div>
+              <div class="menu-item-description">Honey / Lemon Juice / Lime</div>
+            </div>
+            <div class="menu-item-price">1,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Fairview Lady Tanqueray</div>
+              <div class="menu-item-description">Cranberry Juice / Orange Juice / Sugar Syrup</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Espresso Martini Vodka</div>
+              <div class="menu-item-description">Amarula / Espresso / Sugar Syrup</div>
+            </div>
+            <div class="menu-item-price">1,000</div>
+          </div>
+          
+          <!-- More beverage items would continue here... -->
+        </div>
+        
+        <!-- Wines -->
+        <div id="wines">
+          <h3 class="subsection-title">White Wines by Carafe</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Gewürztraminer</div>
+              <div class="menu-item-description">Undurraga Gewürztraminer</div>
+            </div>
+            <div class="menu-item-price">1,800</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sauvignon Blanc</div>
+              <div class="menu-item-description">Zevenwacht 7even Sauvignon Blanc</div>
+            </div>
+            <div class="menu-item-price">2,100</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sauvignon Blanc</div>
+              <div class="menu-item-description">Trumpeter Sauvignon Blanc</div>
+            </div>
+            <div class="menu-item-price">2,300</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chardonnay</div>
+              <div class="menu-item-description">Bruce Jack Reserve Chardonnay</div>
+            </div>
+            <div class="menu-item-price">2,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chenin Blanc</div>
+              <div class="menu-item-description">Bruce Jack Chenin Blanc</div>
+            </div>
+            <div class="menu-item-price">2,000</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Rosé Wines by Carafe</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Trumpeter Rosé</div>
+            </div>
+            <div class="menu-item-price">2,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Vergelegen Rosé</div>
+            </div>
+            <div class="menu-item-price">2,700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Beynat Floyd Malbec Rosé</div>
+            </div>
+            <div class="menu-item-price">3,000</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Red Wines by Carafe</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Carmenere</div>
+              <div class="menu-item-description">Undurraga Carmenere</div>
+            </div>
+            <div class="menu-item-price">1,800</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Cabernet Sauvignon</div>
+              <div class="menu-item-description">Undurraga Cabernet Sauvignon</div>
+            </div>
+            <div class="menu-item-price">1,800</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Shiraz/Syriah</div>
+              <div class="menu-item-description">Zevenwacht 7even Syrah</div>
+            </div>
+            <div class="menu-item-price">2,100</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Merlot</div>
+              <div class="menu-item-description">Bruce Jack Merlot</div>
+            </div>
+            <div class="menu-item-price">2,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Red Blends</div>
+              <div class="menu-item-description">Vergelegen Cab-Sauv-Merlot</div>
+            </div>
+            <div class="menu-item-price">3,000</div>
+          </div>
+          
+          <!-- More wine items would continue here... -->
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="review-icons">
+      <a href="https://www.tripadvisor.com/Restaurant_Review-g294207-d4433502-Reviews-Pwani_pool_restaurant-Nairobi.html" aria-label="TripAdvisor reviews (opens in new tab)" target="_blank" rel="noopener">
+        <img src="https://github.com/isaacwebservice-beep/FAIRVIEW/raw/main/tripadivor.png" alt="TripAdvisor">
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Pwani+Pool+Restaurant+Nairobi" aria-label="Google Maps listing (opens in new tab)" target="_blank" rel="noopener">
+        <img src="https://github.com/isaacwebservice-beep/FAIRVIEW/raw/main/google.png" alt="Google Reviews">
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    // Smooth scroll with slight offset for sticky header
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id) || document.querySelector('a[id="'+id+'"]');
+        if (!el) return;
+        e.preventDefault();
+        const rect = el.getBoundingClientRect();
+        const y = rect.top + window.scrollY - 20;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      });
+    });
+  </script>
+</body>
+</html>
