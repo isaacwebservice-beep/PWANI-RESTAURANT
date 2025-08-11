@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PWANI Pool Restaurant — Menu</title>
+  <title>PWANI Pool Restaurant — Full Menu</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
   <style>
     :root {
       --brand: #03918a;
@@ -34,7 +34,7 @@
       font-size: 16px;
     }
     body {
-      font-family: 'Roboto', system-ui, -apple-system, sans-serif;
+      font-family: 'Montserrat', system-ui, -apple-system, sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.6;
@@ -53,7 +53,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     }
     header .logo { 
-      height: 2.5rem; 
+      height: 4.5rem; 
       width: auto;
     }
     .hero {
@@ -70,8 +70,8 @@
     .hero h1 { 
       margin: 1.5rem 0 0.5rem; 
       font-size: 2rem; 
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
       letter-spacing: 0.5px; 
     }
     .hero p { 
@@ -117,8 +117,8 @@
       margin: 0 0 1.5rem; 
       color: var(--brand-ink); 
       text-align: center; 
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
       letter-spacing: 0.5px;
     }
     .toc-grid {
@@ -199,6 +199,9 @@
       margin-left: 1rem;
       white-space: nowrap;
     }
+    .menu-item-price::before {
+      content: "Ksh ";
+    }
     .allergens {
       margin-top: 0.5rem;
       font-size: 0.85rem;
@@ -213,8 +216,29 @@
       font-size: 1.2rem;
       margin: 1.5rem 0 1rem;
       color: var(--brand-ink);
-      font-family: 'Playfair Display', serif;
+      font-family: 'DM Serif Display', serif;
+      font-weight: 400;
+    }
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+    .price-table th, .price-table td {
+      padding: 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .price-table th {
       font-weight: 600;
+      color: var(--brand-ink);
+    }
+    .price-table td:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+    .price-table td:last-child::before {
+      content: "Ksh ";
     }
     @media (min-width: 768px) { 
       .section { 
@@ -247,6 +271,11 @@
       border-top: 1px solid #e5e7eb; 
       text-align: center;
     }
+    .review-text {
+      margin-bottom: 1rem;
+      font-weight: 500;
+      color: var(--brand-ink);
+    }
     .review-icons { 
       display: flex; 
       gap: 1.5rem; 
@@ -268,6 +297,13 @@
       text-align: center;
       font-style: italic;
     }
+    .price-note {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+      margin: 1rem 0;
+      font-style: italic;
+    }
   </style>
 </head>
 <body>
@@ -278,7 +314,7 @@
   <section class="hero">
     <img src="https://github.com/isaacwebservice-beep/FAIRVIEW/raw/main/pwani.png" alt="PWANI Pool Restaurant logo" class="brandmark" loading="eager" decoding="async">
     <h1>Fairview Hotel, Nairobi</h1>
-    <p>PWANI Pool Restaurant — Online Menu</p>
+    <p>PWANI Pool Restaurant — Full Menu</p>
     <a href="#toc" class="cta">View Our Menu</a>
   </section>
 
@@ -297,8 +333,13 @@
       </nav>
     </section>
 
+    <!-- FOOD MENU SECTION -->
     <section id="restaurant-menu" class="section card" aria-labelledby="restaurant-menu-title">
-      <h2 id="restaurant-menu-title" class="section-title">Restaurant Menu</h2>      
+      <h2 id="restaurant-menu-title" class="section-title">Restaurant Menu</h2>
+      <div class="legend" aria-label="Allergen Key">
+        <span class="chip">Dairy</span><span class="chip">Gluten</span><span class="chip">Eggs</span><span class="chip">Fish</span><span class="chip">Shellfish</span><span class="chip">Pork</span><span class="chip">Mustard</span><span class="chip">Wine</span><span class="chip">Milk</span>
+      </div>
+      
       <div class="menu-block menu-columns">
         <!-- Starters -->
         <div id="starters">
@@ -310,7 +351,7 @@
               <div class="menu-item-description">Salted labneh | roasted garlic | cherry tomato | oregano | olive oil | lavash bread | balsamic reduction | micro herbs</div>
               <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span></div>
             </div>
-            <div class="menu-item-price">Ksh 950</div>
+            <div class="menu-item-price">950</div>
           </div>
           
           <div class="menu-item">
@@ -319,7 +360,7 @@
               <div class="menu-item-description">Agrodolce | pickled raspberries | basil | toasted pumpkin seeds | Rocket | herb oil | baked beets</div>
               <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span></div>
             </div>
-            <div class="menu-item-price">Ksh 1,900</div>
+            <div class="menu-item-price">1,900</div>
           </div>
           
           <div class="menu-item">
@@ -328,7 +369,7 @@
               <div class="menu-item-description">Honey | thyme | chilli flakes | roasted grapes | nuts | lavash</div>
               <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Nuts</span></div>
             </div>
-            <div class="menu-item-price">Ksh 2,200</div>
+            <div class="menu-item-price">2,200</div>
           </div>
           
           <div class="menu-item">
@@ -337,7 +378,7 @@
               <div class="menu-item-description">Potato | crispy fried | saffron aioli</div>
               <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Eggs</span></div>
             </div>
-            <div class="menu-item-price">Ksh 1,000</div>
+            <div class="menu-item-price">1,000</div>
           </div>
           
           <div class="menu-item">
@@ -346,7 +387,7 @@
               <div class="menu-item-description">Chicken flakes | potato | crispy fried | saffron aioli</div>
               <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Eggs</span></div>
             </div>
-            <div class="menu-item-price">Ksh 1,200</div>
+            <div class="menu-item-price">1,200</div>
           </div>
           
           <div class="menu-item">
@@ -355,7 +396,7 @@
               <div class="menu-item-description">Grilled lemon | roasted garlic aioli | jalapeño salsa</div>
               <div class="allergens">Allergens: <span class="chip">Fish</span>, <span class="chip">Gluten</span>, <span class="chip">Eggs</span></div>
             </div>
-            <div class="menu-item-price">Ksh 2,000</div>
+            <div class="menu-item-price">2,000</div>
           </div>
           
           <div class="menu-item">
@@ -364,7 +405,7 @@
               <div class="menu-item-description">Maria bread | bewaz salad | tahini sauce | grilled tomato</div>
               <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Gluten</span></div>
             </div>
-            <div class="menu-item-price">Ksh 2,000</div>
+            <div class="menu-item-price">2,000</div>
           </div>
           
           <div class="menu-item">
@@ -373,7 +414,7 @@
               <div class="menu-item-description">Roasted bone marrow | spicy garlic butter | toasted bread | tomato salad</div>
               <div class="allergens">Allergens: <span class="chip">Milk</span>, <span class="chip">Gluten</span></div>
             </div>
-            <div class="menu-item-price">Ksh 1,200</div>
+            <div class="menu-item-price">1,200</div>
           </div>
           
           <div class="note">Perfect for sharing or tasting a little of everything. Please allow 15-20 minutes preparation time.</div>
@@ -388,63 +429,63 @@
             <div class="menu-item-content">
               <div class="menu-item-title">Rump Steak (350g)</div>
             </div>
-            <div class="menu-item-price">Ksh 4,000</div>
+            <div class="menu-item-price">4,000</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">Beef Filet Mignon (300g) (unaged)</div>
             </div>
-            <div class="menu-item-price">Ksh 4,500</div>
+            <div class="menu-item-price">4,500</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">Rib-Eye Steak (350g)</div>
             </div>
-            <div class="menu-item-price">Ksh 4,300</div>
+            <div class="menu-item-price">4,300</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">T-Bone Steak (450g)</div>
             </div>
-            <div class="menu-item-price">Ksh 5,500</div>
+            <div class="menu-item-price">5,500</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">Sirloin Steak (300g)</div>
             </div>
-            <div class="menu-item-price">Ksh 4,000</div>
+            <div class="menu-item-price">4,000</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">Sirloin Steak (500g)</div>
             </div>
-            <div class="menu-item-price">Ksh 5,000</div>
+            <div class="menu-item-price">5,000</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">Tomahawk Steak (450g)</div>
             </div>
-            <div class="menu-item-price">Ksh 5,500</div>
+            <div class="menu-item-price">5,500</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">Tomahawk Steak (600g)</div>
             </div>
-            <div class="menu-item-price">Ksh 6,500</div>
+            <div class="menu-item-price">6,500</div>
           </div>
           
           <div class="menu-item">
             <div class="menu-item-content">
               <div class="menu-item-title">Lamb Chops (350g)</div>
             </div>
-            <div class="menu-item-price">Ksh 4,000</div>
+            <div class="menu-item-price">4,000</div>
           </div>
           
           <div class="menu-item">
@@ -453,7 +494,7 @@
               <div class="menu-item-description">½ grilled capon | lemon-mustard-honey-yogurt marinade</div>
               <div class="allergens">Allergens: <span class="chip">Dairy</span>, <span class="chip">Mustard</span></div>
             </div>
-            <div class="menu-item-price">Ksh 3,200</div>
+            <div class="menu-item-price">3,200</div>
           </div>
           
           <div class="menu-item">
@@ -462,7 +503,7 @@
               <div class="menu-item-description">Slow cooked ribs | honey glazed</div>
               <div class="allergens">Allergens: <span class="chip">Pork</span></div>
             </div>
-            <div class="menu-item-price">Ksh 3,800</div>
+            <div class="menu-item-price">3,800</div>
           </div>
         </div>
         
@@ -476,7 +517,7 @@
               <div class="menu-item-description">Pan-seared snapper | garlic herb butter</div>
               <div class="allergens">Allergens: <span class="chip">Fish</span>, <span class="chip">Dairy</span></div>
             </div>
-            <div class="menu-item-price">Ksh 3,500</div>
+            <div class="menu-item-price">3,500</div>
           </div>
           
           <div class="menu-item">
@@ -485,7 +526,7 @@
               <div class="menu-item-description">Grilled red snapper | creamy coconut-lime sauce</div>
               <div class="allergens">Allergens: <span class="chip">Fish</span></div>
             </div>
-            <div class="menu-item-price">Ksh 3,500</div>
+            <div class="menu-item-price">3,500</div>
           </div>
           
           <div class="menu-item">
@@ -494,7 +535,7 @@
               <div class="menu-item-description">Pan-seared salmon | garlic herb butter</div>
               <div class="allergens">Allergens: <span class="chip">Fish</span>, <span class="chip">Dairy</span></div>
             </div>
-            <div class="menu-item-price">Ksh 5,000</div>
+            <div class="menu-item-price">5,000</div>
           </div>
           
           <div class="menu-item">
@@ -503,7 +544,7 @@
               <div class="menu-item-description">Wood-fired, lightly seasoned</div>
               <div class="allergens">Allergens: <span class="chip">Shellfish</span></div>
             </div>
-            <div class="menu-item-price">Ksh 5,000</div>
+            <div class="menu-item-price">5,000</div>
           </div>
           
           <div class="menu-item">
@@ -512,14 +553,14 @@
               <div class="menu-item-description">Cream | white wine | onion | garlic | green chili | parsley | French baguette</div>
               <div class="allergens">Allergens: <span class="chip">Shellfish</span>, <span class="chip">Dairy</span>, <span class="chip">Gluten</span>, <span class="chip">Wine</span></div>
             </div>
-            <div class="menu-item-price">Ksh 2,800</div>
+            <div class="menu-item-price">2,800</div>
           </div>
         </div>
         
         <!-- Sides -->
         <div id="sides">
           <h3 class="subsection-title">Sides</h3>
-          <div class="menu-item-description" style="margin-bottom: 1.5rem;">CHOOSE TWO SIDES AND ONE HOUSE SAUCE WITH EVERY GRILL MAIN DISH OR ADD ANY EXTRAS @ KSH500</div>
+          <div class="menu-item-description" style="margin-bottom: 1.5rem;">CHOOSE TWO SIDES AND ONE HOUSE SAUCE WITH EVERY GRILL MAIN DISH OR ADD ANY EXTRAS @ KSH 500</div>
           
           <div class="menu-item">
             <div class="menu-item-content">
@@ -559,8 +600,11 @@
       </div>
     </section>
 
+    <!-- BEVERAGE & WINE SECTION -->
     <section id="beverage-wine" class="section card" aria-labelledby="beverage-wine-title">
       <h2 id="beverage-wine-title" class="section-title">Beverage & Wine List</h2>
+      <div class="price-note">Prices are in Kenya Shillings & Inclusive of Applicable Taxes & Service Charge</div>
+      
       <div class="menu-block menu-columns">
         <!-- Beverages -->
         <div id="beverages">
@@ -647,129 +691,89 @@
           
           <h3 class="subsection-title" style="margin-top: 2rem;">Fresh Brew</h3>
           
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">House Coffee</div>
-              <div class="menu-item-description">Single / Double</div>
-            </div>
-            <div class="menu-item-price">500 / 700</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Iced House Coffee</div>
-              <div class="menu-item-description">Single / Double</div>
-            </div>
-            <div class="menu-item-price">500 / 700</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Americano</div>
-              <div class="menu-item-description">Single / Double</div>
-            </div>
-            <div class="menu-item-price">500 / 600</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Espresso</div>
-              <div class="menu-item-description">Single / Double</div>
-            </div>
-            <div class="menu-item-price">350 / 450</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Cappuccino</div>
-            </div>
-            <div class="menu-item-price">700</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Iced Cappuccino</div>
-            </div>
-            <div class="menu-item-price">700</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Café Latte</div>
-            </div>
-            <div class="menu-item-price">600</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Iced Latte</div>
-            </div>
-            <div class="menu-item-price">600</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Café Macchiato</div>
-            </div>
-            <div class="menu-item-price">500</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Café Mocha</div>
-            </div>
-            <div class="menu-item-price">500</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Iced Café Mocha</div>
-            </div>
-            <div class="menu-item-price">500</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Kenyan Tea Pot / Masala</div>
-            </div>
-            <div class="menu-item-price">700</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Hot Chocolate</div>
-            </div>
-            <div class="menu-item-price">700</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Hot Milk</div>
-            </div>
-            <div class="menu-item-price">500</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Herbal Tea</div>
-            </div>
-            <div class="menu-item-price">500</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Iced Tea</div>
-            </div>
-            <div class="menu-item-price">400</div>
-          </div>
-          
-          <div class="menu-item">
-            <div class="menu-item-content">
-              <div class="menu-item-title">Dawa Concoction</div>
-              <div class="menu-item-description">ginger/lemon/honey</div>
-            </div>
-            <div class="menu-item-price">500</div>
-          </div>
+          <table class="price-table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Single</th>
+                <th>Double</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>House Coffee</td>
+                <td>500</td>
+                <td>700</td>
+              </tr>
+              <tr>
+                <td>Iced House Coffee</td>
+                <td>500</td>
+                <td>700</td>
+              </tr>
+              <tr>
+                <td>Americano</td>
+                <td>500</td>
+                <td>600</td>
+              </tr>
+              <tr>
+                <td>Espresso</td>
+                <td>350</td>
+                <td>450</td>
+              </tr>
+              <tr>
+                <td>Cappuccino</td>
+                <td colspan="2">700</td>
+              </tr>
+              <tr>
+                <td>Iced Cappuccino</td>
+                <td colspan="2">700</td>
+              </tr>
+              <tr>
+                <td>Café Latte</td>
+                <td colspan="2">600</td>
+              </tr>
+              <tr>
+                <td>Iced Latte</td>
+                <td colspan="2">600</td>
+              </tr>
+              <tr>
+                <td>Café Macchiato</td>
+                <td colspan="2">500</td>
+              </tr>
+              <tr>
+                <td>Café Mocha</td>
+                <td colspan="2">500</td>
+              </tr>
+              <tr>
+                <td>Iced Café Mocha</td>
+                <td colspan="2">500</td>
+              </tr>
+              <tr>
+                <td>Kenyan Tea Pot / Masala</td>
+                <td colspan="2">700</td>
+              </tr>
+              <tr>
+                <td>Hot Chocolate</td>
+                <td colspan="2">700</td>
+              </tr>
+              <tr>
+                <td>Hot Milk</td>
+                <td colspan="2">500</td>
+              </tr>
+              <tr>
+                <td>Herbal Tea</td>
+                <td colspan="2">500</td>
+              </tr>
+              <tr>
+                <td>Iced Tea</td>
+                <td colspan="2">400</td>
+              </tr>
+              <tr>
+                <td>Dawa Concoction (ginger/lemon/honey)</td>
+                <td colspan="2">500</td>
+              </tr>
+            </tbody>
+          </table>
           
           <h3 class="subsection-title" style="margin-top: 2rem;">House Cocktails</h3>
           
@@ -797,7 +801,580 @@
             <div class="menu-item-price">1,000</div>
           </div>
           
-          <!-- More beverage items would continue here... -->
+          <h3 class="subsection-title" style="margin-top: 2rem;">Classic Cocktails</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Negroni</div>
+              <div class="menu-item-description">Gin / Campari / Martini Rosso</div>
+            </div>
+            <div class="menu-item-price">1,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Negroni Blue Dot</div>
+              <div class="menu-item-description">Blue Dot Gin / Campari / Martini Rosso</div>
+            </div>
+            <div class="menu-item-price">2,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Negroni Red Dot</div>
+              <div class="menu-item-description">Red Dot Gin / Campari / Martini Rosso</div>
+            </div>
+            <div class="menu-item-price">3,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Margarita</div>
+              <div class="menu-item-description">Tequila / Triple Sec / Lemon Juice</div>
+            </div>
+            <div class="menu-item-price">1,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Cosmopolitan</div>
+              <div class="menu-item-description">Vodka / Triple Sec / Cranberry Juice</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Whisky Julep</div>
+              <div class="menu-item-description">Whisky / Sweet & Sour Mix / Mint Leaves / Ginger-Ale</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Tom Collins</div>
+              <div class="menu-item-description">Tanqueray / Basil / Lemon Juice / Sugar Syrup / Cucumber / Tonic</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Bloody Mary</div>
+              <div class="menu-item-description">Vodka / Tomato Juice / Tabasco / Salt / Worcestershire Sauce / Lime Juice / Black Pepper</div>
+            </div>
+            <div class="menu-item-price">1,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Pinacolada</div>
+              <div class="menu-item-description">White Rum / Malibu / Pineapple Juice / Coconut Cream / Sugar Syrup / Lemon Juice</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Blue Lagoon</div>
+              <div class="menu-item-description">Blue Curacao / Vodka / Lemonade / Lemon Juice</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Hot Toddy Brandy</div>
+              <div class="menu-item-description">Honey / Cinnamon / Hot Water</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Mojito</div>
+              <div class="menu-item-description">Rum / Soda Water / Mint / Brown Sugar / Lemon Juice</div>
+            </div>
+            <div class="menu-item-price">1,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Banana Daiquiri</div>
+              <div class="menu-item-description">White Rum / Triple Sec / Banana / Lemon Juice</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Hennessy Side Car</div>
+              <div class="menu-item-description">Hennessy /Cointreau / Lemon Juice / Sugar Syrup</div>
+            </div>
+            <div class="menu-item-price">3,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Russian Coffee</div>
+              <div class="menu-item-description">Vodka / Coffee / Whipped Cream</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Long Island Iced Tea</div>
+              <div class="menu-item-description">Gin / White Rum / Triple Sec / Vodka / Tequila / Coke / Lemon Juice</div>
+            </div>
+            <div class="menu-item-price">2,500</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Boozy Coffee</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Irish Coffee</div>
+              <div class="menu-item-description">Irish Whisky / Coffee / Nutmeg / Whipped Cream</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Parisienne Coffee</div>
+              <div class="menu-item-description">Brandy / Coffee / Whipped Cream</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Calypso Coffee</div>
+              <div class="menu-item-description">Tia Maria / Dark Rum / Coffee / Whipped Cream</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Mocktails</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Virgin Colada</div>
+              <div class="menu-item-description">Pineapple Juice / Coconut Cream / Sugar Syrup / Lemon Juice</div>
+            </div>
+            <div class="menu-item-price">550</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Fruit Punch</div>
+              <div class="menu-item-description">Mixed Fruit Tisane / Mango Juice / Fresh Lime / Fresh Mint</div>
+            </div>
+            <div class="menu-item-price">550</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Lemonade</div>
+              <div class="menu-item-description">Lemon Juice / Sprite / Sugar Syrup / Crushed Ice</div>
+            </div>
+            <div class="menu-item-price">550</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Beers</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Draft Beer (500ml)</div>
+              <div class="menu-item-description">Kifa Bok Brew / Simpils 5 Brew</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Local Beers</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Savanna Cider</div>
+            </div>
+            <div class="menu-item-price">750</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Imported Beers</div>
+              <div class="menu-item-description">Heineken</div>
+            </div>
+            <div class="menu-item-price">650</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Aperitifs</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Martini Bianco TOT</div>
+            </div>
+            <div class="menu-item-price">400</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Martini Rosso</div>
+            </div>
+            <div class="menu-item-price">400</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Campari</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Disaronna Amaretto</div>
+            </div>
+            <div class="menu-item-price">700</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Liqueurs</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Amarula Cream</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Baileys Cream</div>
+            </div>
+            <div class="menu-item-price">550</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Southern Comfort</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Tripple Sec</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Jägermeister</div>
+            </div>
+            <div class="menu-item-price">650</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Cointreau</div>
+            </div>
+            <div class="menu-item-price">650</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Tequila</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Camino Real Gold / Bianco</div>
+            </div>
+            <div class="menu-item-price">350</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Don Julio Reposado</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Don Julio Bianco</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Vodka</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Smirnoff Vodka</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Absolut Blue Vodka</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Belvedere Vodka</div>
+            </div>
+            <div class="menu-item-price">850</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Gin</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Procera Green Dot</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Procera Red Dot</div>
+            </div>
+            <div class="menu-item-price">1,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Procera Blue Dot</div>
+            </div>
+            <div class="menu-item-price">850</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Malfy Gin Originale</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Malfy Gin Rosa</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Malfy Con Limone</div>
+            </div>
+            <div class="menu-item-price">600</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Tanqueray No 10</div>
+            </div>
+            <div class="menu-item-price">700</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Tanqueray London Dry</div>
+            </div>
+            <div class="menu-item-price">500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Beefeater Gin</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Bombay Sapphire</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Gordon's Gin Dry</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Gilbey's Gin Dry</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Rum</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Bacardi Silver</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Captain Morgan Dark Rum</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Malibu</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Brandy / Cognac</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Martel VSOP</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Hennessy VS</div>
+            </div>
+            <div class="menu-item-price">750</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Martel VS</div>
+            </div>
+            <div class="menu-item-price">650</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Viceroy Brandy</div>
+            </div>
+            <div class="menu-item-price">350</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Richot Brandy</div>
+            </div>
+            <div class="menu-item-price">250</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Single Malt Whisky</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Singleton Dufftown 12yrs</div>
+            </div>
+            <div class="menu-item-price">850</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Dhalwinnie 15 yrs</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Glenlivet Founders Reserve</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Singleton Dufftown 15yrs</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Talisker 10 yrs</div>
+            </div>
+            <div class="menu-item-price">1,200</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Glenfiddich 15 yrs</div>
+            </div>
+            <div class="menu-item-price">1,500</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Blends & Bourbon</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chivas Regal 12yrs</div>
+            </div>
+            <div class="menu-item-price">800</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Johnnie Walker Black Label</div>
+            </div>
+            <div class="menu-item-price">750</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Johnnie Walker Red Label</div>
+            </div>
+            <div class="menu-item-price">400</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Jack Daniels</div>
+            </div>
+            <div class="menu-item-price">750</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Jameson Irish Whisky</div>
+            </div>
+            <div class="menu-item-price">450</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Jameson Black Barrel</div>
+            </div>
+            <div class="menu-item-price">850</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Ballantine's Whisky</div>
+            </div>
+            <div class="menu-item-price">350</div>
+          </div>
         </div>
         
         <!-- Wines -->
@@ -909,13 +1486,408 @@
             <div class="menu-item-price">3,000</div>
           </div>
           
-          <!-- More wine items would continue here... -->
+          <h3 class="subsection-title" style="margin-top: 2rem;">Flavoured Wines by Bottle</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Rosso Nobile/Red Sweet Chocolate – Germany</div>
+            </div>
+            <div class="menu-item-price">2,300 / 6,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Blanco Nobile/White Sweet Vanilla – Germany</div>
+            </div>
+            <div class="menu-item-price">2,300 / 6,500</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">White Wines by Bottle</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sauvignon Blanc – South Africa</div>
+              <div class="menu-item-description">Zevenwacht 7even Sauvignon Blanc</div>
+            </div>
+            <div class="menu-item-price">6,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sauvignon Blanc – Argentina</div>
+              <div class="menu-item-description">Trumpeter Sauvignon Blanc</div>
+            </div>
+            <div class="menu-item-price">6,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sauvignon Blanc – Chile</div>
+              <div class="menu-item-description">Montes Classic Sauvignon Blanc</div>
+            </div>
+            <div class="menu-item-price">8,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sauvignon Blanc – New Zealand</div>
+              <div class="menu-item-description">Yealands Single Sauvignon Blanc</div>
+            </div>
+            <div class="menu-item-price">10,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Sauvignon Blanc – South Africa</div>
+              <div class="menu-item-description">Iona Sauvignon Blanc</div>
+            </div>
+            <div class="menu-item-price">12,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chenin Blanc – South Africa</div>
+              <div class="menu-item-description">Bruce Jack Lifestyle Chenin Blanc</div>
+            </div>
+            <div class="menu-item-price">5,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chenin Blanc – South Africa</div>
+              <div class="menu-item-description">Inspector Jordan Chenin Blanc</div>
+            </div>
+            <div class="menu-item-price">10,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chardonnay – South Africa</div>
+              <div class="menu-item-description">Bruce Jack Reserve Chardonnay</div>
+            </div>
+            <div class="menu-item-price">7,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chardonnay – France</div>
+              <div class="menu-item-description">Gerard Bertrand Chardonnay</div>
+            </div>
+            <div class="menu-item-price">8,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chardonnay – South Africa</div>
+              <div class="menu-item-description">Vergelegen Chardonnay</div>
+            </div>
+            <div class="menu-item-price">9,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chenin Blanc – South Africa</div>
+              <div class="menu-item-description">Jordan Inspector Peringuey</div>
+            </div>
+            <div class="menu-item-price">11,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Pinot Grigio – Italy</div>
+              <div class="menu-item-description">Ruffino Pinot Grigio</div>
+            </div>
+            <div class="menu-item-price">9,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Pinot Grigio – Italy</div>
+              <div class="menu-item-description">Longheri Delle Venezie Pinot Grigio</div>
+            </div>
+            <div class="menu-item-price">14,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Gewürztraminer – Chile</div>
+              <div class="menu-item-description">Undurraga Gewürztraminer</div>
+            </div>
+            <div class="menu-item-price">5,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">White Blends – Italy</div>
+              <div class="menu-item-description">Soave Classico DOC</div>
+            </div>
+            <div class="menu-item-price">12,000</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Rosé Wines by Bottle</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Trumpeter Rosé – Argentina</div>
+            </div>
+            <div class="menu-item-price">6,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Beynat Floyd Malbec– Chile</div>
+            </div>
+            <div class="menu-item-price">8,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Vergelegen Rosé – South Africa</div>
+            </div>
+            <div class="menu-item-price">8,500</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Red Wines by Bottle</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Carmenere – Chile</div>
+              <div class="menu-item-description">Undurraga Carmenere</div>
+            </div>
+            <div class="menu-item-price">5,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Cabernet Sauvignon – Chile</div>
+              <div class="menu-item-description">Undurraga Cabernet Sauvignon</div>
+            </div>
+            <div class="menu-item-price">5,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Cabernet Sauvignon – Argentina</div>
+              <div class="menu-item-description">Trumpeter Cabernet Sauvignon</div>
+            </div>
+            <div class="menu-item-price">7,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Cabernet Sauvignon – South Africa</div>
+              <div class="menu-item-description">Vergelegen Cabernet Sauvignon</div>
+            </div>
+            <div class="menu-item-price">9,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chardonnay – South Africa</div>
+              <div class="menu-item-description">Bruce Jack Reserve Chardonnay</div>
+            </div>
+            <div class="menu-item-price">7,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Chardonnay – France</div>
+              <div class="menu-item-description">Gerard Bertrand Chardonnay</div>
+            </div>
+            <div class="menu-item-price">8,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Merlot – South Africa</div>
+              <div class="menu-item-description">Bruce Jack Merlot</div>
+            </div>
+            <div class="menu-item-price">5,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Merlot – South Africa</div>
+              <div class="menu-item-description">Jordan Black Magic Merlot</div>
+            </div>
+            <div class="menu-item-price">14,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Shiraz/Syriah – South Africa</div>
+              <div class="menu-item-description">Zevenwacht 7even Syrah</div>
+            </div>
+            <div class="menu-item-price">6,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Shiraz – South Africa</div>
+              <div class="menu-item-description">Painted Wolf The Den Shiraz</div>
+            </div>
+            <div class="menu-item-price">7,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Pinotage – South Africa</div>
+              <div class="menu-item-description">Bruce Jack Reserve Pinotage</div>
+            </div>
+            <div class="menu-item-price">7,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Pinotage – South Africa</div>
+              <div class="menu-item-description">Painted Wolf The Den Pinotage</div>
+            </div>
+            <div class="menu-item-price">7,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Malbec – Argentina</div>
+              <div class="menu-item-description">Trumpeter Malbec</div>
+            </div>
+            <div class="menu-item-price">7,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Malbec – Argentina</div>
+              <div class="menu-item-description">Postales Malbec</div>
+            </div>
+            <div class="menu-item-price">8,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Pinot Noir – Chile</div>
+              <div class="menu-item-description">Montes Pinot Noir</div>
+            </div>
+            <div class="menu-item-price">8,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Pinot Noir – South Africa</div>
+              <div class="menu-item-description">Iona Mr. P Pinot Noir</div>
+            </div>
+            <div class="menu-item-price">11,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Red Blends – Spain</div>
+              <div class="menu-item-description">Cune Rioja Crianza</div>
+            </div>
+            <div class="menu-item-price">7,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Red Blends – South Africa</div>
+              <div class="menu-item-description">Vergelegen Cabernet Sauvignon-Merlot</div>
+            </div>
+            <div class="menu-item-price">8,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Red Blends – France</div>
+              <div class="menu-item-description">Sirius Bordeaux Rouge</div>
+            </div>
+            <div class="menu-item-price">9,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Red Blends – South Africa</div>
+              <div class="menu-item-description">Warwick Three Cape Ladies</div>
+            </div>
+            <div class="menu-item-price">10,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Red Blends – Spain</div>
+              <div class="menu-item-description">Cune Rioja Reserve</div>
+            </div>
+            <div class="menu-item-price">11,500</div>
+          </div>
+          
+          <h3 class="subsection-title" style="margin-top: 2rem;">Champagnes & Sparkling Wines</h3>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Giusti Sparkling Extra Dry – Italy</div>
+            </div>
+            <div class="menu-item-price">10,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Ruffino Prosecco – Italy</div>
+            </div>
+            <div class="menu-item-price">12,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Piemonte DOC De Blanc Brut – Italy</div>
+            </div>
+            <div class="menu-item-price">13,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Rosalia Rose Extra Dry – Italy</div>
+            </div>
+            <div class="menu-item-price">14,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Rosalia Prosecco DOC Treviso – Italy</div>
+            </div>
+            <div class="menu-item-price">15,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Simonsig Kaapse Vonkel Brut</div>
+            </div>
+            <div class="menu-item-price">18,500</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Giusti Asolo Prosecco Superiore DOCG Brut</div>
+            </div>
+            <div class="menu-item-price">19,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Laurent Perrier – France</div>
+            </div>
+            <div class="menu-item-price">38,000</div>
+          </div>
+          
+          <div class="menu-item">
+            <div class="menu-item-content">
+              <div class="menu-item-title">Louis Roederer Collection 242 – France</div>
+            </div>
+            <div class="menu-item-price">40,000</div>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
+    <div class="review-text">Scan and review us on</div>
     <div class="review-icons">
       <a href="https://www.tripadvisor.com/Restaurant_Review-g294207-d4433502-Reviews-Pwani_pool_restaurant-Nairobi.html" aria-label="TripAdvisor reviews (opens in new tab)" target="_blank" rel="noopener">
         <img src="https://github.com/isaacwebservice-beep/FAIRVIEW/raw/main/tripadivor.png" alt="TripAdvisor">
